@@ -86,6 +86,7 @@
   var linker = new DeepLinker({
     onIgnored: function() {
       console.log('browser failed to respond to the deep link');
+      linker.openURL(badURL);
     },
     onFallback: function() {
       console.log('dialog hidden or user returned to tab');

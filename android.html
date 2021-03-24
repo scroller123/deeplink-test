@@ -82,11 +82,19 @@
 
   var url = 'dclub://pushaction/?data=eyJtZXRob2QiOjYsIm9yZGVyX2hhc2giOiJkZDVkZDdlNTIwM2Y0NDM4M2RjN2M2YzBhNzljMTAwODlkZjkyZjc0In0=';
   var badURL = 'market://details/?id=com.deliveryclub&_branch_match_id=903269032333706164&referrer=link_click_id-903269032333706164%2526utm_source%253DBranch';
+  var tries  = 0;
 
   var linker = new DeepLinker({
     onIgnored: function() {
       console.log('browser failed to respond to the deep link');
-      linker.openURL(badURL);
+      if (tries === 0) {
+        linker.openURL(badURL);
+        tries++;
+      }
+      if (tries === 1) {
+        linker.openURL('https://www.delivery-club.ru/');
+        tries++;
+      }
     },
     onFallback: function() {
       console.log('dialog hidden or user returned to tab');

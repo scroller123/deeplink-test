@@ -82,11 +82,19 @@
 
   var url = 'dclub://pushaction/?data=eyJtZXRob2QiOjYsIm9yZGVyX2hhc2giOiJkZDVkZDdlNTIwM2Y0NDM4M2RjN2M2YzBhNzljMTAwODlkZjkyZjc0In0=';
   var badURL = 'https://apps.apple.com/app/id436145623';
+  var tries  = 0;
 
   var linker = new DeepLinker({
     onIgnored: function() {
       console.log('browser failed to respond to the deep link');
-      linker.openURL(badURL);
+      if (tries === 0) {
+        linker.openURL(badURL);
+        tries++;
+      }
+      if (tries === 1) {
+        linker.openURL('https://www.delivery-club.ru/');
+        tries++;
+      }
     },
     onFallback: function() {
       console.log('dialog hidden or user returned to tab');

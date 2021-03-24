@@ -83,6 +83,7 @@
   var url = 'dclub://pushaction/?data=eyJtZXRob2QiOjYsIm9yZGVyX2hhc2giOiJkZDVkZDdlNTIwM2Y0NDM4M2RjN2M2YzBhNzljMTAwODlkZjkyZjc0In0=';
   var badURL = 'https://apps.apple.com/app/id436145623';
   var tries  = 0;
+  var triesx  = 0;
 
   var linker = new DeepLinker({
     onIgnored: function() {
@@ -98,13 +99,13 @@
     },
     onFallback: function() {
       console.log('dialog hidden or user returned to tab');
-      if (tries === 0) {
+      if (triesx === 0) {
         linker.openURL(badURL);
-        tries++;
+        triesx++;
       }
-      if (tries === 1) {
+      if (triesx === 1) {
         linker.openURL('https://www.delivery-club.ru/');
-        tries++;
+        triesx++;
       }
     },
     onReturn: function() {

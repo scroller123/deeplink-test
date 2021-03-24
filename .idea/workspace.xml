@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e65d897d-1f67-42c5-a814-4a8fc4f5c00c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,10 +43,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="571" y="114" width="773" height="881" key="CommitChangelistDialog2" timestamp="1616607639319">
+    <state x="571" y="114" width="773" height="881" key="CommitChangelistDialog2" timestamp="1616607885944">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="571" y="114" width="773" height="881" key="CommitChangelistDialog2/0.25.1920.1055@0.25.1920.1055" timestamp="1616607639319" />
+    <state x="571" y="114" width="773" height="881" key="CommitChangelistDialog2/0.25.1920.1055@0.25.1920.1055" timestamp="1616607885944" />
     <state width="1874" height="271" key="GridCell.Tab.0.bottom" timestamp="1616602149028">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
@@ -64,9 +63,9 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state width="1874" height="271" key="GridCell.Tab.0.right/0.25.1920.1055@0.25.1920.1055" timestamp="1616602149027" />
-    <state x="555" y="290" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1616607641389">
+    <state x="555" y="290" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1616607887786">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="555" y="290" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1616607641389" />
+    <state x="555" y="290" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1616607887786" />
   </component>
 </project>

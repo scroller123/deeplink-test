@@ -27,6 +27,6 @@
   },
   "homepage": "https://github.com/scroller123/deeplink-test#readme",
   "dependencies": {
-    "http": "0.0.1-security"
+    "express": "^4.17.1"
   }
 }

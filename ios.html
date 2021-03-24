@@ -65,6 +65,7 @@
     // expose public API
     this.destroy = bindEvents.bind(null, 'remove');
     this.openURL = function(url) {
+      console.log('openUrl: ', url);
       // it can take a while for the dialog to appear
       var dialogTimeout = 500;
 

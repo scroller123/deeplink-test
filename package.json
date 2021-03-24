@@ -1,9 +1,9 @@
 {
-  "name": " ",
+  "name": "deeplink-test",
   "version": "0.0.1",
   "description": "",
-  "keywords": "",
-  "license": "",
+  "keywords": [],
+  "license": "ISC",
   "author": "",
   "scripts": {
     "build": "parcel build index.html",
@@ -13,5 +13,20 @@
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4"
+  },
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scroller123/deeplink-test.git"
+  },
+  "bugs": {
+    "url": "https://github.com/scroller123/deeplink-test/issues"
+  },
+  "homepage": "https://github.com/scroller123/deeplink-test#readme",
+  "dependencies": {
+    "http": "0.0.1-security"
   }
 }

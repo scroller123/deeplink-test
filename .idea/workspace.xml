@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e65d897d-1f67-42c5-a814-4a8fc4f5c00c" name="Default Changelist" comment="" />
+    <list default="true" id="e65d897d-1f67-42c5-a814-4a8fc4f5c00c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1qD4gozDFRThlXV27uu8OpskFLR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -30,5 +38,19 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="571" y="114" width="773" height="881" key="CommitChangelistDialog2" timestamp="1616601368123">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="571" y="114" width="773" height="881" key="CommitChangelistDialog2/0.25.1920.1055@0.25.1920.1055" timestamp="1616601368123" />
+    <state x="555" y="290" width="806" height="530" key="Vcs.Push.Dialog.v2" timestamp="1616601597761">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="555" y="290" width="806" height="530" key="Vcs.Push.Dialog.v2/0.25.1920.1055@0.25.1920.1055" timestamp="1616601597761" />
   </component>
 </project>

@@ -1,0 +1,24 @@
+<html>
+<body>
+<script>
+  var fallbackToStore = function() {
+    window.location.replace('https://apps.apple.com/app/id436145623');
+    console.log('fallback');
+  };
+  var openApp = function() {
+    window.location.replace('dclub://pushaction/?data=eyJtZXRob2QiOjYsIm9yZGVyX2hhc2giOiJkZDVkZDdlNTIwM2Y0NDM4M2RjN2M2YzBhNzljMTAwODlkZjkyZjc0In0=');
+    console.log('openApp');
+  };
+  var triggerAppOpen = function() {
+    openApp();
+    setTimeout(fallbackToStore, 250);
+  };
+  window.onload = function() {
+    console.log('onload');
+    triggerAppOpen();
+  }
+
+</script>
+loading...
+</body>
+</html>

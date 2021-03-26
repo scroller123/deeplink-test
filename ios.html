@@ -131,19 +131,22 @@
     openStore.openURL(badURL); // ios use only
   }
 
-  openApp = new DeepLinker({
-    onIgnored: function() {
-      openApp.destroy();
-      console.log('openApp: browser failed to respond to the deep link');
-      addtoDocument('openApp onIgnored, ');
+  function appOnIgnored() {
+    openApp.destroy();
+    console.log('openApp: browser failed to respond to the deep link');
+    addtoDocument('openApp onIgnored, ');
 
-      if (openAppUsed) {
-        addtoDocument('openApp onIgnored used -> exit, ');
-        return;
-      }
-      openAppUsed = true;
-      openStore.openURL(badURL); // android use only
-    },
+    if (openAppUsed) {
+      addtoDocument('openApp onIgnored used -> exit, ');
+      return;
+    }
+    openAppUsed = true;
+    openStore.openURL(badURL); // android use only
+
+  }
+
+  openApp = new DeepLinker({
+    onIgnored: appOnIgnored,
     onFallback: appOnFallbackFn,
     onReturn: function() {
       openApp.destroy();

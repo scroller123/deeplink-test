@@ -17,7 +17,7 @@
     // window is blurred when dialogs are shown
     function onBlur() {
       console.log('onBlur');
-      addtoDocument('onBlur (hasFocus = false)');
+      addtoDocument('onBlur (hasFocus = false), ');
       hasFocus = false;
     };
 
@@ -26,15 +26,16 @@
       console.log('onVisibilityChange');
       if (e.target.visibilityState === 'hidden') {
         console.log('onVisibilityChange visibilityState = hidden');
-        addtoDocument('onVisibilityChange (didHide set to TRUE)');
+        addtoDocument('onVisibilityChange (didHide set to TRUE), ');
         didHide = true;
       }
     };
 
     // window is focused when dialogs are hidden, or browser comes into view
     function onFocus() {
+      addtoDocument('onFocus');
       if (didHide) {
-        console.log('onFocus didHide=true');
+        console.log('onFocus didHide=true, ');
         if (options.onReturn) {
           options.onReturn();
         }

@@ -1,6 +1,11 @@
 <html>
 <body>
 <script>
+  function addtoDocument(text) {
+    let liLast = document.createElement('span');
+    liLast.innerHTML = text;
+    document.body.append(liLast)
+  }
   function DeepLinker(options) {
     if (!options) {
       throw new Error('no options')
@@ -11,12 +16,15 @@
 
     // window is blurred when dialogs are shown
     function onBlur() {
+      console.log('onBlur');
       hasFocus = false;
     };
 
     // document is hidden when native app is shown or browser is backgrounded
     function onVisibilityChange(e) {
+      console.log('onVisibilityChange');
       if (e.target.visibilityState === 'hidden') {
+        console.log('onVisibilityChange visibilityState = hidden');
         didHide = true;
       }
     };
@@ -24,12 +32,14 @@
     // window is focused when dialogs are hidden, or browser comes into view
     function onFocus() {
       if (didHide) {
+        console.log('onFocus didHide=true');
         if (options.onReturn) {
           options.onReturn();
         }
 
         didHide = false; // reset
       } else {
+        console.log('onFocus didHide=false');
         // ignore duplicate focus event when returning from native app on
         // iOS Safari 13.3+
         if (!hasFocus && options.onFallback) {
@@ -82,39 +92,42 @@
   /* usage */
 
   var url = 'dclub://pushaction/?data=eyJtZXRob2QiOjYsIm9yZGVyX2hhc2giOiJkZDVkZDdlNTIwM2Y0NDM4M2RjN2M2YzBhNzljMTAwODlkZjkyZjc0In0=';
+  // var badURL = 'market://details/?id=com.deliveryclub&_branch_match_id=903269032333706164&referrer=link_click_id-903269032333706164%2526utm_source%253DBranch';
   var badURL = 'https://apps.apple.com/app/id436145623';
-  var tries  = 0;
-  var triesx  = 0;
 
-  var linker = new DeepLinker({
+  var openStore = new DeepLinker({
     onIgnored: function() {
-      console.log('browser failed to respond to the deep link');
-      if (tries === 0) {
-        linker.openURL(badURL);
-        tries++;
-      }
-      if (tries === 1) {
-        linker.openURL(badURL);
-        tries++;
-      }
+      console.log('openStore: browser failed to respond to the deep link');
+      addtoDocument('openStore onIgnored, ');
     },
     onFallback: function() {
-      console.log('dialog hidden or user returned to tab');
-      if (triesx === 0) {
-        linker.openURL(badURL);
-        triesx++;
-      }
-      if (triesx === 1) {
-        linker.openURL(badURL);
-        triesx++;
-      }
+      console.log('openStore: dialog hidden or user returned to tab');
+      addtoDocument('openStore onFallback, ');
     },
     onReturn: function() {
-      console.log('user returned to the page from the native app');
+      console.log('openStore: user returned to the page from the native app');
+      addtoDocument('openStore onReturn, ');
     },
   });
 
-  linker.openURL(url);
+  var openApp = new DeepLinker({
+    onIgnored: function() {
+      console.log('openApp: browser failed to respond to the deep link');
+      addtoDocument('openApp onIgnored, ');
+      // openStore.openURL(badURL); // android use only
+    },
+    onFallback: function() {
+      console.log('openApp: dialog hidden or user returned to tab');
+      addtoDocument('openApp onFallback, ');
+      openStore.openURL(badURL); // ios use only
+    },
+    onReturn: function() {
+      console.log('openApp: user returned to the page from the native app');
+      addtoDocument('openApp onReturn, ');
+    },
+  });
+
+  openApp.openURL(url);
 </script>
 loading...
 </body>

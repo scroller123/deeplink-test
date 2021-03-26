@@ -6,6 +6,9 @@
     liLast.innerHTML = text;
     document.body.append(liLast)
   }
+
+
+
   function DeepLinker(options) {
     if (!options) {
       throw new Error('no options')
@@ -99,6 +102,26 @@
   var badURL = 'https://apps.apple.com/app/id436145623';
 
 
+  function appOnFallbackFn() {
+    console.log('openApp: dialog hidden or user returned to tab');
+    addtoDocument('openApp onFallback, ');
+
+    var openStore = new DeepLinker({
+      onIgnored: function() {
+        console.log('openStore: browser failed to respond to the deep link');
+        addtoDocument('openStore onIgnored, ');
+      },
+      onFallback: function() {
+        console.log('openStore: dialog hidden or user returned to tab');
+        addtoDocument('openStore onFallback, ');
+      },
+      onReturn: function() {
+        console.log('openStore: user returned to the page from the native app');
+        addtoDocument('openStore onReturn, ');
+      },
+    });
+    openStore.openURL(badURL); // ios use only
+  }
 
   var openApp = new DeepLinker({
     onIgnored: function() {
@@ -106,26 +129,7 @@
       addtoDocument('openApp onIgnored, ');
       // openStore.openURL(badURL); // android use only
     },
-    onFallback: function() {
-      console.log('openApp: dialog hidden or user returned to tab');
-      addtoDocument('openApp onFallback, ');
-
-      var openStore = new DeepLinker({
-        onIgnored: function() {
-          console.log('openStore: browser failed to respond to the deep link');
-          addtoDocument('openStore onIgnored, ');
-        },
-        onFallback: function() {
-          console.log('openStore: dialog hidden or user returned to tab');
-          addtoDocument('openStore onFallback, ');
-        },
-        onReturn: function() {
-          console.log('openStore: user returned to the page from the native app');
-          addtoDocument('openStore onReturn, ');
-        },
-      });
-      openStore.openURL(badURL); // ios use only
-    },
+    onFallback: appOnFallbackFn(),
     onReturn: function() {
       console.log('openApp: user returned to the page from the native app');
       addtoDocument('openApp onReturn, ');

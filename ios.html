@@ -103,18 +103,8 @@
   var openApp;
   var openAppUsed = false;
 
-  function appOnFallbackFn() {
-    openApp.destroy();
-    console.log('openApp: dialog hidden or user returned to tab');
-    addtoDocument('openApp onFallback, ');
-
-    if (openAppUsed) {
-      addtoDocument('openApp onFallback used -> exit, ');
-      return;
-    }
-    openAppUsed = true;
-
-    var openStore = new DeepLinker({
+  function getOpenStore() {
+    return new DeepLinker({
       onIgnored: function() {
         console.log('openStore: browser failed to respond to the deep link');
         addtoDocument('openStore onIgnored, ');
@@ -128,6 +118,20 @@
         addtoDocument('openStore onReturn, ');
       },
     });
+  }
+
+  function appOnFallbackFn() {
+    openApp.destroy();
+    console.log('openApp: dialog hidden or user returned to tab');
+    addtoDocument('openApp onFallback, ');
+
+    if (openAppUsed) {
+      addtoDocument('openApp onFallback used -> exit, ');
+      return;
+    }
+    openAppUsed = true;
+
+    var openStore = getOpenStore;
     openStore.openURL(badURL); // ios use only
   }
 
@@ -141,8 +145,8 @@
       return;
     }
     openAppUsed = true;
+    var openStore = getOpenStore;
     openStore.openURL(badURL); // android use only
-
   }
 
   openApp = new DeepLinker({

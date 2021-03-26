@@ -36,7 +36,7 @@
 
     // window is focused when dialogs are hidden, or browser comes into view
     function onFocus() {
-      addtoDocument('onFocus');
+      addtoDocument('onFocus, ');
       if (didHide) {
         console.log('onFocus didHide=true, ');
         if (options.onReturn) {
@@ -149,14 +149,17 @@
     openStore.openURL(badURL); // android use only
   }
 
+  function appOnReturn() {
+    openAppUsed = true;
+    openApp.destroy();
+    console.log('openApp: user returned to the page from the native app');
+    addtoDocument('openApp onReturn, ');
+  }
+
   openApp = new DeepLinker({
     onIgnored: appOnIgnored,
     onFallback: appOnFallbackFn,
-    onReturn: function() {
-      openApp.destroy();
-      console.log('openApp: user returned to the page from the native app');
-      addtoDocument('openApp onReturn, ');
-    },
+    onReturn: appOnReturn,
   });
 
   openApp.openURL(url);

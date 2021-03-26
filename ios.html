@@ -112,6 +112,7 @@
       addtoDocument('openApp onFallback used -> exit, ');
       return;
     }
+    openAppUsed = true;
 
     var openStore = new DeepLinker({
       onIgnored: function() {
@@ -140,7 +141,7 @@
         addtoDocument('openApp onIgnored used -> exit, ');
         return;
       }
-
+      openAppUsed = true;
       openStore.openURL(badURL); // android use only
     },
     onFallback: appOnFallbackFn,

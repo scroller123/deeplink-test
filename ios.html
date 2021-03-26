@@ -131,7 +131,7 @@
     }
     openAppUsed = true;
 
-    var openStore = getOpenStore;
+    var openStore = getOpenStore();
     openStore.openURL(badURL); // ios use only
   }
 
@@ -145,7 +145,7 @@
       return;
     }
     openAppUsed = true;
-    var openStore = getOpenStore;
+    var openStore = getOpenStore();
     openStore.openURL(badURL); // android use only
   }
 

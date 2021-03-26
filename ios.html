@@ -25,6 +25,7 @@
       console.log('onVisibilityChange');
       if (e.target.visibilityState === 'hidden') {
         console.log('onVisibilityChange visibilityState = hidden');
+        addtoDocument('didHide set to TRUE');
         didHide = true;
       }
     };
